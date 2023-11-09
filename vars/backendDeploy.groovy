@@ -63,7 +63,7 @@ def isPortAvailable(port) {
 // }
 def isPortInUseForDocker(port) {
     def dockerPsOutput = sh(script: "docker ps --format '{{.Ports}}'", returnStdout: true).trim()
-    def portsToCheck = [8080, 8081, 8083, 8084, 8085] // Add more ports as needed
+    def portsToCheck = [8080, 8081, 8083, 8084, 8085, 8086 ,8087] // Add more ports as needed
 
     for (checkPort in portsToCheck) {
         if (dockerPsOutput.contains(":$port->$checkPort/tcp")) {
